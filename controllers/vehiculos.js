@@ -1,11 +1,12 @@
 const Vehiculo = require('../models/Vehiculo');
 
-const getVehiculos = async (req, res) => {
+// Exporta como funciones individuales
+exports.getVehiculos = async (req, res) => {
   try {
     const vehiculos = await Vehiculo.getAllVehiculos();
     res.json(vehiculos);
   } catch (error) {
-    res.status(500).json({ error: 'Error al obtener vehículos' });
+    res.status(500).json({ error: error.message });
   }
 };
 module.exports = { getVehiculos };
