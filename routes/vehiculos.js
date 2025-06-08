@@ -4,4 +4,4 @@ const { getVehiculos } = require('../controllers/vehiculos');
 
 router.get('/', getVehiculos);
 
-module.exports = router;
+module.exports = router; 
