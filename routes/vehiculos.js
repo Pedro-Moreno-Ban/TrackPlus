@@ -1,10 +1,9 @@
-// routes/vehiculos.js
 const express = require('express');
 const router = express.Router();
-const { getVehiculos } = require('../controllers/vehiculos');
+const vehiculoController = require('../controllers/vehiculos');
 
-// Asegúrate de que getVehiculos sea una función
-router.get('/', getVehiculos);
+// Asegúrate de pasar la función directamente
+router.get('/', vehiculoController.getVehiculos);
 
-// Exporta SOLO el router (no un objeto)
+// Exporta SOLO el router
 module.exports = router;
