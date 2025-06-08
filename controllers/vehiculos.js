@@ -8,6 +8,7 @@ const getVehiculos = async (req, res) => {
     res.status(500).json({ error: 'Error al obtener vehículos' });
   }
 };
+module.exports = { getVehiculos };
 
 const addVehiculo = async (req, res) => {
   const { placa, modelo, kilometraje } = req.body;
