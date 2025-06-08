@@ -1,4 +1,4 @@
-/*const express = require('express');
+const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 
@@ -14,7 +14,7 @@ app.use(express.json());
 app.use('/api/vehiculos', require('./routes/vehiculos'));
 app.use('/api/alertas', require('./routes/alertas'));
 
-module.exports = app;//*/
+module.exports = app;/*
 const express = require('express');
 const app = express();
 
@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
   res.send('API Funcionando');
 });
 
-module.exports = app;
+module.exports = app;*/
 
 // Middleware de errores (al final de todo)
 app.use((err, req, res, next) => {
