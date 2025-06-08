@@ -6,32 +6,30 @@ dotenv.config();
 
 const app = express();
 
-// Middlewares
+// Middlewares esenciales
+app.use(cors());
+app.use(express.json());
+
+// Rutas
 const vehiculosRouter = require('./routes/vehiculos'); 
 const alertasRouter = require('./routes/alertas');
 
-// Usa las rutas
-app.use('/api/vehiculos', vehiculosRouter); // ✔ Así es correcto
+app.use('/api/vehiculos', vehiculosRouter);
 app.use('/api/alertas', alertasRouter);
 
-module.exports = app;/*
-const express = require('express');
-const app = express();
-
-app.use(express.json());
-
-// Rutas básicas de prueba
+// Ruta de prueba opcional
 app.get('/', (req, res) => {
   res.send('API Funcionando');
 });
 
-module.exports = app;*/
-
-// Middleware de errores (al final de todo)
+// Middleware de errores (¡ANTES de module.exports!)
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ 
     error: 'Error interno del servidor',
     detalles: process.env.NODE_ENV === 'development' ? err.message : undefined
   });
+});
+
+module.exports = app;
 });
