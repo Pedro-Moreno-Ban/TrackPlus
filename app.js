@@ -15,7 +15,6 @@ app.use('/api/alertas', alertasRouter);
 // Ruta de prueba
 app.get('/', (req, res) => res.send('API Funcionando'));
 
-module.exports = app;
 // Middleware de errores
 app.use((err, req, res, next) => {
   console.error(err.stack);
