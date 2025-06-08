@@ -7,12 +7,12 @@ dotenv.config();
 const app = express();
 
 // Middlewares
-app.use(cors());
-app.use(express.json());
+const vehiculosRouter = require('./routes/vehiculos'); 
+const alertasRouter = require('./routes/alertas');
 
-// Rutas
-app.use('/api/vehiculos', require('./routes/vehiculos'));
-app.use('/api/alertas', require('./routes/alertas'));
+// Usa las rutas
+app.use('/api/vehiculos', vehiculosRouter); // ✔ Así es correcto
+app.use('/api/alertas', alertasRouter);
 
 module.exports = app;/*
 const express = require('express');
