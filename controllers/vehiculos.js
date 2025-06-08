@@ -1,6 +1,6 @@
 const Vehiculo = require('../models/Vehiculo');
 
-// Controlador para obtener vehículos
+// Usa exports directos o module.exports, no ambos
 const getVehiculos = async (req, res) => {
   try {
     const vehiculos = await Vehiculo.getAllVehiculos();
@@ -10,7 +10,6 @@ const getVehiculos = async (req, res) => {
   }
 };
 
-// Controlador para agregar vehículos
 const addVehiculo = async (req, res) => {
   const { placa, modelo, kilometraje } = req.body;
   try {
@@ -21,7 +20,7 @@ const addVehiculo = async (req, res) => {
   }
 };
 
-// Exporta TODAS las funciones juntas
+// Exporta como objeto
 module.exports = {
   getVehiculos,
   addVehiculo
